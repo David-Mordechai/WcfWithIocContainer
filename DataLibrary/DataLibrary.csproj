@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataLibrary.Core\DataLibrary.Core.csproj" />
-    <ProjectReference Include="..\ServicesLibrary.Core\ServicesLibrary.Core.csproj" />
   </ItemGroup>
 
 </Project>

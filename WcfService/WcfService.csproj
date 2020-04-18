@@ -108,6 +108,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataLibrary.Core\DataLibrary.Core.csproj">
+      <Project>{EEABADD1-A1B9-4327-BE02-969B6B21C8BB}</Project>
+      <Name>DataLibrary.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{379F0A83-199E-43DE-85C4-143BDEB90613}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServicesLibrary.Core\ServicesLibrary.Core.csproj">
       <Project>{68d477bb-ad0c-4273-bf06-f91b8c43d6a2}</Project>
       <Name>ServicesLibrary.Core</Name>

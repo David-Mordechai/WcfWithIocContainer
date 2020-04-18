@@ -1,5 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.Wcf;
+using DataLibrary;
+using DataLibrary.Core;
 using ServicesLibrary;
 using ServicesLibrary.Core;
 
@@ -18,6 +20,9 @@ namespace WcfService.App_Code
             // this service will be injected to Daycare wcf service to costructor
             builder.RegisterType<ExampleService>()
                    .As<IExampleService>();
+
+            builder.RegisterType<ExampleDataService>()
+                   .As<IExampleDataService>();
 
             AutofacHostFactory.Container = builder.Build();
         }
