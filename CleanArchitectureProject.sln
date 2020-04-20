@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLibrary", "DataLibrary\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLibrary.Core", "DataLibrary.Core\DataLibrary.Core.csproj", "{EEABADD1-A1B9-4327-BE02-969B6B21C8BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLibrary", "DomainLibrary\DomainLibrary.csproj", "{D025A154-A8F7-43D4-9F8B-046E26313EE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomainLibrary", "DomainLibrary\DomainLibrary.csproj", "{D025A154-A8F7-43D4-9F8B-046E26313EE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{B15ACF19-DCD6-414E-A54C-207B59E9F198}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{D025A154-A8F7-43D4-9F8B-046E26313EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D025A154-A8F7-43D4-9F8B-046E26313EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D025A154-A8F7-43D4-9F8B-046E26313EE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B15ACF19-DCD6-414E-A54C-207B59E9F198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B15ACF19-DCD6-414E-A54C-207B59E9F198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B15ACF19-DCD6-414E-A54C-207B59E9F198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B15ACF19-DCD6-414E-A54C-207B59E9F198}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

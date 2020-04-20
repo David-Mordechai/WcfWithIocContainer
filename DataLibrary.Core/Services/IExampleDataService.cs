@@ -1,4 +1,4 @@
-﻿namespace DataLibrary.Core
+﻿namespace DataLibrary.Core.Services
 {
     public interface IExampleDataService
     {

@@ -1,17 +1,21 @@
-﻿using DomainLibrary.Entities;
+﻿using DataLibrary.Core;
+using DomainLibrary.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace DataLibrary
 {
     public class DataLibraryDbContext : DbContext
     {
+        private readonly IDataBaseConfiguration _dataBaseConfiguration;
+
+        public DataLibraryDbContext(IDataBaseConfiguration dataBaseConfiguration)
+        {
+            _dataBaseConfiguration = dataBaseConfiguration;
+        }
+
         public DbSet<User> Users { get; set; }
 
-        //public DataLibraryDbContext(DbContextOptions<DataLibraryDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,7 +25,7 @@ namespace DataLibrary
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=WebApiDb;Trusted_Connection=True;MultipleActiveResultSets=true");
+            optionsBuilder.UseSqlServer(_dataBaseConfiguration.ConnectionString);
         }
     }
 }

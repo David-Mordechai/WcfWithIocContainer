@@ -1,4 +1,4 @@
-﻿using DataLibrary.Core;
+﻿using DataLibrary.Core.Services;
 using System.Linq;
 
 namespace DataLibrary.Services
@@ -14,9 +14,11 @@ namespace DataLibrary.Services
 
         public string GetNameById(int id)
         {
-            var a = _dbContext.Users.FirstOrDefault();
-            // pretend that i query database
-            return id.ToString();
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id == id);
+
+            if (user == null) return string.Empty;
+
+            return $"{user.FirstName} {user.LastName}";
         }
     }
 }

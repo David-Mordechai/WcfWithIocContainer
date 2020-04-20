@@ -1,4 +1,4 @@
-﻿using DataLibrary.Core;
+﻿using DataLibrary.Core.Services;
 using ServicesLibrary.Core;
 
 namespace ServicesLibrary
@@ -14,7 +14,7 @@ namespace ServicesLibrary
 
         public string GetData(int value)
         {
-            return string.Format("You entered: {0}", _exampleDataService.GetNameById(value));
+            return $"User Name: {_exampleDataService.GetNameById(value)}";
         }
     }
 }
