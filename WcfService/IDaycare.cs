@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 
 namespace WcfService
@@ -12,7 +13,7 @@ namespace WcfService
         string GetData(int value);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        CitiesContract GetCities();
 
         // TODO: Add your service operations here
     }
@@ -20,23 +21,25 @@ namespace WcfService
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class CitiesContract
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        [DataMember]
+        public bool Success { get; set; }
 
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
+        public string ErrorMessage { get; set; }
 
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public List<City> Cities { get; set; }
+    }
+
+    [DataContract]
+    public class City
+    {
+        [DataMember]
+        public int CityCode { get; set; }
+
+        [DataMember]
+        public string CityName { get; set; }
     }
 }

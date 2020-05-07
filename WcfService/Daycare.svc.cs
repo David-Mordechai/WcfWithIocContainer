@@ -1,4 +1,5 @@
-﻿using ServicesLibrary.Core;
+﻿using AutoMapper;
+using ServicesLibrary.Core;
 using System;
 
 namespace WcfService
@@ -8,10 +9,12 @@ namespace WcfService
     public class Daycare : IDaycare
     {
         private readonly IExampleService _exampleService;
+        private readonly IMapper _mapper;
 
-        public Daycare(IExampleService exampleService)
+        public Daycare(IExampleService exampleService, IMapper mapper)
         {
             _exampleService = exampleService;
+            _mapper = mapper;
         }
 
         public string GetData(int value)
@@ -19,17 +22,14 @@ namespace WcfService
             return _exampleService.GetData(value);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public CitiesContract GetCities()
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            var citiesResult = _exampleService.GetCities();
+
+            var result = _mapper.Map<CitiesContract>(citiesResult);
+
+            return result;
         }
+
     }
 }

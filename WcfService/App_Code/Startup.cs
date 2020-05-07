@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Wcf;
+using AutoMapper;
 using DataLibrary;
 using DataLibrary.Core;
 using DataLibrary.Core.Services;
@@ -7,6 +8,7 @@ using DataLibrary.Services;
 using ServicesLibrary;
 using ServicesLibrary.Core;
 using System.Web.Configuration;
+using WcfService.Mapping;
 
 namespace WcfService.App_Code
 {
@@ -38,7 +40,21 @@ namespace WcfService.App_Code
             builder.RegisterType<ExampleDataService>()
                    .As<IExampleDataService>();
 
+            // register AutoMapper 
+            builder.RegisterInstance(CreateMapper()).As<IMapper>();
+
             AutofacHostFactory.Container = builder.Build();
+        }
+
+        private static Mapper CreateMapper()
+        {
+            var mapperConfiguration =
+                            new MapperConfiguration(cfg =>
+                            {
+                                cfg.AddProfile<CityMapper>();
+                                cfg.AddProfile<GetCitiesResultMapper>();
+                            });
+            return new Mapper(mapperConfiguration);
         }
     }
 }
